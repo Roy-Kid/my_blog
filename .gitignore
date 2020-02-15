@@ -61,6 +61,7 @@ coverage.xml
 local_settings.py
 migrations/
 
+
 # Flask stuff:
 instance/
 .webassets-cache
@@ -126,4 +127,8 @@ venv.bak/
 dmypy.json
 
 # Pyre type checker
+<<<<<<< HEAD
 .pyre/
+=======
+.pyre/
+>>>>>>> ea0e87f58304a95476ced8efa13bae24f6d57685

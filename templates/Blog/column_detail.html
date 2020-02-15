@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{column.name}}
+{% endblock title %}
+
+{% block content %}
+
+<div class="container jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+        <h1 class="display-4 font-italic">{{column.name}}</h1>
+        <p class="lead my-3">{{column.excerpt}}</p>
+        <p class="lead mb-0">
+           <span class="text-white font-weight-bold">last updated:{{column.updated_time}}</span>
+        </p>
+    </div>
+</div>
+
+{% for article in articles %}
+
+<div class="container card my-5" >
+    <div class="card-body">
+      <h5 class="card-title">{{article.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{article.author}}</h6>
+      <p class="card-text">{{article.excerpt}}</p>
+      <a href="{% url 'Blog:article_detail' column.name article.slug_title %}" class="card-link"><span><i class="fa fa-eye"></i>：{{article.total_views}}</span>Read More...</a>
+    </div>
+</div>
+
+{% endfor %}
+
+{% endblock content %}

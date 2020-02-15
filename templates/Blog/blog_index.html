@@ -1,0 +1,108 @@
+<!-- nav from base.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Blog
+{% endblock title %}
+
+{% block content %}
+
+<div class="container jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+        <h1 class="display-4 font-italic">Welcome to my own blog</h1>
+        <p class="lead my-3">This is blog system is developed by Roy both frontend & backend.</p>
+        <p class="lead mb-0">
+            <a class="text-white font-weight-bold" href="#"> continue building</a>
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3 class="pb-4 mb-4 font-italic border-bottom">
+                New articles...
+            </h3>
+        </div>
+    </div>
+
+
+
+
+    <div class="row mb-2 ">
+
+
+        {% for article in articles %}
+        <div class="col-md-6">
+            <div
+                class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-success">{{article.column}}</strong>
+                    <h3 class="mb-0">{{article.title}}</h3>
+                    <div class="mb-1 text-muted">{{article.created_time}}</div>
+                    <p class="card-text mb-auto">{{article.excerpt}}</p>
+                    <span>
+                        <i class="fa fa-eye"></i> {{article.total_views}}
+                        <a href="{% url 'Blog:article_detail' article.column article.slug_title %}"
+                            class="stretched-link">more...</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-8 blog-main">
+                <h3 class="pb-4 mb-4 font-italic border-bottom">
+                    Column Lists...
+                </h3>
+
+                <!--the list of column-->
+
+                {% for column in columns %}
+                <div class="card mb-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">
+                            <a>{{column.name}}</a>
+                        </h5>
+                        <p class="card-text">{{column.excerpt}}</p>
+                        <a href="{% url 'Blog:column_detail' column.name %}" class="btn btn-primary">enter</a>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+
+            <aside class="col-4 blog-sidebar">
+                <div class="p-4 mb-3 bg-light rounded">
+                    <h4 class="font-italic">About</h4>
+                    <p>write something blabla</p>
+                </div>
+
+                <div class="p-4">
+                    <h4 class="font-italic">Archives</h4>
+                    <ul class="list-unstyled mb-0">
+                        <li>one</li>
+                        <li>two</li>
+                        <li>three</li>
+                    </ul>
+                </div>
+
+                <div class="p-4">
+                    <h4 class="font-italic">Link</h4>
+                    <ol class="list-unstyled mb-0">
+                        <li>github</li>
+                        <li>fackbook</li>
+                    </ol>
+                </div>
+
+            </aside>
+        </div>
+    </div>
+
+
+    {% endblock content %}

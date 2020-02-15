@@ -1,0 +1,22 @@
+<!-- nav from base.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{article.title}}
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 alert alert-success">
+            author : {{article.author}} <a href="{% url 'Blog:article_delete' article.column article.slug_title %}">delete</a>
+        </div>
+        {{article.body | safe}}
+    </div>
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,28 @@
+.bg-dark {
+    background-color: #2C2C32 !important;
+  }
+
+.nav-link {
+    font-size: x-large;
+}
+
+html, body {
+  height:100%;
+  margin: 0;
+  padding: 0;
+}
+
+#footer {
+  position: relative;
+  margin-top: -60px;
+  clear: both;
+}
+
+#main-container{
+  min-height: 100%;
+}
+
+#main {
+  overflow: auto;
+  padding-bottom: 100px;
+}
